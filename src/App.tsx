@@ -1,7 +1,13 @@
-import './App.css';
+import './App.scss';
+import { PhoneForm } from 'common/components/PhoneForm';
 
 export const App = () => {
   return (
-    <div>Hello!</div>
+    <div className="wrapper">
+      <PhoneForm />
+      <div>
+        Table
+      </div>
+    </div>
   );
 }

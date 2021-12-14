@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background: #e8cbc0;
+  background: -webkit-linear-gradient(to right, #636fa4, #e8cbc0);
+  background: linear-gradient(to right, #636fa4, #e8cbc0);
+}

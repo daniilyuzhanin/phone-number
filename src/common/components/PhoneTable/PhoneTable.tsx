@@ -1,31 +1,54 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+// import { getDatabase, ref, onValue, query, get, child } from "firebase/database";
+// import { useDispatch } from 'react-redux';
 
 import { Wrapper } from '../Wrapper/Wrapper';
+// import { setCategories } from '../../../store/list/list-slice';
 
 function createData(name: string, calories: number) {
   return { name, calories };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 157777779),
-  createData('Ice cream sandwich', 237777777),
-  createData('Eclair', 267777772),
-  createData('Cupcake', 305777777),
-  createData('Gingerbread', 3567777777),
-];
+
+
 
 export const PhoneTable = () => {
+
+  // const dispatch = useDispatch();
+
+  // const db = getDatabase();
+  // const dbRef = ref(db, 'phoneNumber');
+
+
+  // onValue(dbRef, (snapshot) => {
+  //   snapshot.forEach((childSnapshot) => {
+  //     const childData = childSnapshot.val();
+  //     dispatch(setCategories(childData))
+  //   });
+  // }, {
+  //   onlyOnce: true
+  // });
+  
+
+
+  const rows = [
+    createData('Frozen yoghurt', 157777779),
+    createData('Ice cream sandwich', 237777777),
+    createData('Eclair', 267777772),
+    createData('Cupcake', 305777777),
+    createData('Gingerbread', 3567777777),
+  ];
+
+  
+
+
   return (
     <Wrapper>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Country</TableCell>
-            <TableCell align="right">Phone number</TableCell>
+            <TableCell>Селектор</TableCell>
+            <TableCell align="right">Номер телефона</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,6 +63,7 @@ export const PhoneTable = () => {
               <TableCell align="right">{row.calories}</TableCell>
             </TableRow>
           ))}
+
         </TableBody>
       </Table>
       </Wrapper>

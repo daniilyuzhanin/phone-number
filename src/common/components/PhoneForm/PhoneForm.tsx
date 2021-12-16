@@ -1,5 +1,6 @@
 import { Box, TextField, MenuItem } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { getDatabase, ref, set, push } from "firebase/database";
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 
@@ -19,7 +20,12 @@ const useStyles = makeStyles({
 
 export const PhoneForm = () => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const classes = useStyles(); 
+
+
+  const database = getDatabase();
+
+  const postListRef = push(ref(database, 'phoneNumber'));
 
   const formik = useFormik({
     initialValues: {
@@ -30,6 +36,7 @@ export const PhoneForm = () => {
     onSubmit: (data) => {
       console.log(data)
       dispatch(setPhone(data));
+      set(postListRef, data );
     },
   });
 

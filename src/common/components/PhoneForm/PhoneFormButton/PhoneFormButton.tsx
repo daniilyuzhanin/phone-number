@@ -1,5 +1,9 @@
 import { Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useDispatch } from 'react-redux';
+
+import { setPhoneList } from 'store/list/list-slice';
 
 const useStyles = makeStyles({
   button: {
@@ -7,15 +11,36 @@ const useStyles = makeStyles({
   },
 });
 
+type PhoneListType = Array<[string, string]>;
 
 export const PhoneFormButton = () => {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
+  const db = getDatabase();
+  const dbRef = ref(db, 'phoneNumber');
+
   const { button } = classes;
+
+  const phoneList : PhoneListType = [];
+  
+
+  const handleClick = () => {
+    onValue(dbRef, (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        phoneList.push(childSnapshot.val())
+      });
+      dispatch(setPhoneList(phoneList))
+    }, {
+      onlyOnce: true
+    });
+  }
 
   return (
     <Button
       className={button}
+      onClick={handleClick}
         style={{
           textTransform: 'none', 
           fontSize: '1rem',
@@ -31,7 +56,7 @@ export const PhoneFormButton = () => {
         id="signinSubmit"
         size="large"
     >
-      Войти
+      Сохранить
     </Button>
   )
 }

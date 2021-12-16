@@ -1,1 +1,2 @@
-export type { PhoneState } from './Phone';
+export type { PhoneType } from './Phone';
+export type { CountryOptionsType } from './CountryOptions';

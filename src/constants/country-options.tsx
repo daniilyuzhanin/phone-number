@@ -1,13 +1,6 @@
+import { CountryOptionsType } from "types";
 
-
-
-export type OptionsType = {
-  name: string;
-  selector: string;
-  img: string;
-};
-
-export const COUNTRY_OPTIONS: { [key: string]: OptionsType } = {
+export const COUNTRY_OPTIONS: { [key: string]: CountryOptionsType } = {
   RUSSIA: {
     name: 'Россия',
     selector: '+7',

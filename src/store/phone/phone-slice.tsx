@@ -1,11 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export type PhoneState = {
-  selector: string;
-  phone: string;
-};
+import { PhoneType } from 'types/Phone';
 
-const initialState: PhoneState = {
+const initialState: PhoneType = {
   selector: '',
   phone: '',
 };
@@ -14,7 +11,7 @@ export const phoneSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setPhone: (state, action: PayloadAction<PhoneState>) => {
+    setPhone: (state, action: PayloadAction<PhoneType>) => {
       return action.payload;
     },
   },

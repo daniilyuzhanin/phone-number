@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-type PhoneListType = Array<[string, string]>;
+type PhoneListType = Array<string>;
 
 export const PhoneFormButton = () => {
   const classes = useStyles();
@@ -29,12 +29,14 @@ export const PhoneFormButton = () => {
   const handleClick = () => {
     onValue(dbRef, (snapshot) => {
       snapshot.forEach((childSnapshot) => {
-        phoneList.push(childSnapshot.val())
+        const dataValue = Object.values(childSnapshot.val()).reverse().join('');
+        phoneList.push(dataValue)
       });
       dispatch(setPhoneList(phoneList))
     }, {
       onlyOnce: true
     });
+    <p>clown</p>
   }
 
   return (

@@ -34,7 +34,6 @@ export const PhoneForm = () => {
     },
     validationSchema,
     onSubmit: (data) => {
-      console.log(data)
       dispatch(setPhone(data));
       set(postListRef, data );
     },

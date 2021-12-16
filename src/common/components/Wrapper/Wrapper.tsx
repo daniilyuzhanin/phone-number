@@ -11,12 +11,15 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '1rem 1rem',
+    margin: '0.5% 0',
+    '@media (max-width: 900px)': {
+      margin: '2% 5%', 
+    },
   },
   wrapper: {
     padding: '2rem',
     minHeight: '20rem',
-    width: '25.5rem',
+    minWidth: '15rem',
     margin: '0 auto',
   },
 });

@@ -1,24 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { PhoneType } from 'types/Phone';
-
 export type ListType = {
-  numbers: PhoneType,
+  phone: string,
 };
 
 const initialState: ListType = {
-  numbers: {
-    selector: '',
-    phone: '',
-  },
+  phone: '',
 };
+
 
 export const phoneSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     setPhoneList: (state, action) => {
-      state.numbers = action.payload;
+      return action.payload;
     },
   },
 });

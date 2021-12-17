@@ -14,8 +14,6 @@
 // export const app = initializeApp(firebaseConfig);
 // export const database = getDatabase(app);
 
-
-
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 

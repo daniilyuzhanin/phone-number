@@ -36,7 +36,6 @@ export const PhoneFormButton = () => {
     }, {
       onlyOnce: true
     });
-    <p>clown</p>
   }
 
   return (

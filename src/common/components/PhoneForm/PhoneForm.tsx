@@ -50,6 +50,12 @@ export const PhoneForm = () => {
 
   const { title } = classes;
 
+  const keyPressChange = (keyboardElement: React.KeyboardEvent<{}>) => {
+    if (!/[0-9]/.test(keyboardElement.key)) {
+      keyboardElement.preventDefault();
+    }
+  }
+
   return (
     <Wrapper>
 
@@ -84,7 +90,7 @@ export const PhoneForm = () => {
 
           <TextField
             onChange={handleBlur}
-            type="number"
+            onKeyPress={keyPressChange} 
             fullWidth
             label='Phone Number'
             variant='outlined'
@@ -95,7 +101,9 @@ export const PhoneForm = () => {
             }}
             error={isPhoneTouched && Boolean(phoneErrors)}
             helperText={isPhoneTouched && phoneErrors}
+            inputProps={{ inputmode: 'numeric' }}
         />
+
           <PhoneFormButton />   
         </form>
     </Wrapper>

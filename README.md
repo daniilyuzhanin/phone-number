@@ -14,7 +14,7 @@ In the project directory, you can run:
 
 ## First view of project
 
-![alt tag](https://drive.google.com/file/d/1eHPiTNRrcXVq-4i9C6ov-LV2wuUMgm3Z/view?usp=sharing "Внешний вид экрана")​
+![image](https://drive.google.com/file/d/1eHPiTNRrcXVq-4i9C6ov-LV2wuUMgm3Z/view?usp=sharing)
 
 ## Deploy
 

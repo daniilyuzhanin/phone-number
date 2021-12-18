@@ -16,6 +16,8 @@
 
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBSsuJlp1AzrwwXRiPZVAfbU4_UqVatsGg",
@@ -28,4 +30,7 @@ const firebaseConfig = {
   measurementId: "G-ZN03PTBTED"
 };
 const app = initializeApp(firebaseConfig);
+
+export const phoneNumberDB = getFirestore();
+
 const analytics = getAnalytics(app);

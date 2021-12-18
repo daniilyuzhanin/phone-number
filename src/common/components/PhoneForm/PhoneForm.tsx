@@ -92,7 +92,7 @@ export const PhoneForm = () => {
             onChange={handleBlur}
             onKeyPress={keyPressChange} 
             fullWidth
-            label='Phone Number'
+            label='Номер телефона'
             variant='outlined'
             name='phone'
             value={phoneValue}

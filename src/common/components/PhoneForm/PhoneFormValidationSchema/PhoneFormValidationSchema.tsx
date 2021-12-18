@@ -3,8 +3,8 @@ import * as yup from 'yup';
 export const validationSchema = yup.object({
   phone: yup
     .string()
-    .required('We need your first name – it’s nicer that way')
+    .required('Пожалуйста, введите номер телефона')
     .matches(
       /^[0-9]{3,10}$/
-      , 'Enter a valid name')
+      , 'Номер телефона должен содержать от трех до десяти цифр')
 });

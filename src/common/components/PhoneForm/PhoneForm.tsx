@@ -1,6 +1,5 @@
 import { Box, TextField, MenuItem } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { getDatabase, ref, set, push } from "firebase/database";
 import { collection, addDoc } from "firebase/firestore";
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -25,12 +24,6 @@ export const PhoneForm = () => {
   const dispatch = useDispatch();
   const classes = useStyles(); 
 
-
-  const database = getDatabase();
-
-  const postListRef = push(ref(database, 'phoneNumber'));
-
-
   const formik = useFormik({
     initialValues: {
       selector: '+7',
@@ -39,7 +32,6 @@ export const PhoneForm = () => {
     validationSchema,
     onSubmit: (data) => {
       dispatch(setPhone(data));
-      set(postListRef, data );
       addDoc(collection(phoneNumberDB, "phoneNumbers"), {
         selector: data.selector,
         phone: data.phone,

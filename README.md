@@ -18,30 +18,29 @@ In the project directory, you can run:
 
 ## Deploy
 
-https://phone-number-2022j.web.app/
+https://phone-number-2022j.web.app/  
 
-	
-__Задача__
+__Task__
 
-Реализовать реактивное web-приложение для ввода телефонных номеров и вывода списка введенных номеров в таблицу или список
-Пользовательский интерфейс
-Элемент для ввода номера телефона;
-Список (или таблица) введенных номеров телефонов.
+*  Implement a reactive web application to enter phone numbers and list the entered numbers in a table or list  
+*  User interface element for entering a phone number; 
+* List (or table) of entered phone numbers.
 
-__Элемент ввода номера телефона состоит из:__
-1. Селектора с выбором кода страны — три кода разных стран на ваше усмотрение, список стран и кодов вынесен в конфиг;
-2. Поля для ввода номера телефона;
-3. Кнопки отправки.
-Поведение
-Изначальное состояние web-приложения
+__The phone number input element consists of:__
 
-Поле для ввода номера пустое;
-Таблица (список) пустая;
-В селекторе выбран код «+7».
-При наборе номера телефона в происходит валидация.
+*  Selector with country code selection - three codes of different countries on view, the list of countries and codes is moved to the config;
+*  Fields for entering a phone number;
+*  Buttons are sent. 
 
-__Правила валидации:__
+__Web application state behavior__  
+*  The field for entering the number is empty; 
+*  The table (list) is empty; 
+*  Code "+7" is selected in the selector. 
+*  When you dial a phone number, a check is made.
 
-Длина номера телефона от 3 до 10 цифр, без учета кода страны;
-Запрещены любые символы, кроме цифр.
-При нажатии на кнопку отправки номер сохраняться в БД и выводится в таблицу (список). В режиме online таблица (список) обновляется на всех устройствах, на которых открыто web-приложение.
+__Validation rules:__
+
+*  The length of the phone number is from 3 to 10 digits, excluding the country code; 
+*  Any characters other than numbers are prohibited. 
+*  When writing to the database, the number is stored in the database and displayed in a table (list). 
+*  In the online table (list) mode, it is updated on all devices found in the open web application.

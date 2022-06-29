@@ -1,6 +1,6 @@
 import { Box, TextField, MenuItem } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { collection, addDoc } from "firebase/firestore";
+import { getDatabase, ref, set, push } from "firebase/database";
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 
@@ -10,7 +10,18 @@ import { Wrapper } from 'common/components/Wrapper';
 import { COUNTRY_OPTIONS } from 'constants/country-options';
 import { setPhone } from 'store/phone/phone-slice';
 
-import { phoneNumberDB } from '../../../base';
+export const writeUserData = (data: {
+  selector: string | number,
+  phone: string | number,
+}) => {
+  const db = getDatabase();
+  const postListRef = ref(db, 'phoneNumbers');
+  const newPostRef = push(postListRef);
+  set(newPostRef, {
+    selector: data.selector,
+    phone: data.phone,
+  });
+}
 
 const useStyles = makeStyles({
   title: {
@@ -32,10 +43,7 @@ export const PhoneForm = () => {
     validationSchema,
     onSubmit: (data) => {
       dispatch(setPhone(data));
-      addDoc(collection(phoneNumberDB, "phoneNumbers"), {
-        selector: data.selector,
-        phone: data.phone,
-      });
+      writeUserData(data);
     },
   });
 

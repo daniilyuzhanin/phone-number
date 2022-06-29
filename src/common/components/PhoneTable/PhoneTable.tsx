@@ -1,17 +1,14 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { collection } from "firebase/firestore"; 
-import { useCollection } from 'react-firebase-hooks/firestore';
+import { getDatabase, ref } from "firebase/database";
+import { useList } from 'react-firebase-hooks/database';
 
-import { phoneNumberDB } from '../../../base';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 export const PhoneTable = () => {
-  const [value] = useCollection(
-    collection(phoneNumberDB, 'phoneNumbers'),
-    {
-      snapshotListenOptions: { includeMetadataChanges: true },
-    }
-  );
+
+  const db = getDatabase();
+
+  const [snapshots] = useList(ref(db, 'phoneNumbers'));
 
   return (
     <Wrapper>
@@ -23,23 +20,22 @@ export const PhoneTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {value && (
-            <div>
-              {value.docs.map((phoneDoc, index) => {
+            {snapshots && (
+              <div>
+              {snapshots.map((el) => {
                 return (
                   <TableRow
-                    key={index}
+                    key={el.key}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell key={(phoneDoc.data()).phone} component="th" scope="row">
-                      {`${(phoneDoc.data()).selector} ${(phoneDoc.data()).phone}`}
+                    <TableCell key={(el.val()).phone} component="th" scope="row">
+                      {`${(el.val()).selector} ${(el.val()).phone}`}
                     </TableCell>
                   </TableRow>
                 )
               })}
             </div> 
-            )
-          }
+            )}
         </TableBody>
       </Table>
 
